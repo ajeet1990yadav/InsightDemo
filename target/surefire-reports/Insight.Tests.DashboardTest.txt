@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: Insight.Tests.DashboardTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 2, Time elapsed: 0.905 sec <<< FAILURE!
+start(Insight.Tests.DashboardTest)  Time elapsed: 0.698 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Insight.Base.Base.initalization(Base.java:40)
+	at Insight.Tests.DashboardTest.start(DashboardTest.java:23)
+
