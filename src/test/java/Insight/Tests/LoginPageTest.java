@@ -20,7 +20,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import Insight.Base.Base;
 import Insight.Pages.LoginPage;
-import Insight.Utils.CaptureScreenshot;
+//import Insight.Utils.CaptureScreenshot;
 import Insight.Utils.ExcelReader;
 
 public class LoginPageTest extends Base {
@@ -28,8 +28,7 @@ public class LoginPageTest extends Base {
 	// Base B;
 	LoginPage LP;
 	ExcelReader ER = new ExcelReader();
-	static ExtentReports extent;
-	static ExtentTest log;
+	
 
 	public LoginPageTest() throws IOException {
 		super();
@@ -38,7 +37,7 @@ public class LoginPageTest extends Base {
 	@BeforeMethod
 	public void start() throws IOException {
 		// B=new Base();
-		extent = new ExtentReports(System.getProperty("user.dir") + "\\ExtentReportResults.html", true);
+		
 		log = extent.startTest("LoginPageTest");
 		Base.initalization();
 	}
@@ -49,7 +48,7 @@ public class LoginPageTest extends Base {
 		// LP.Login(prop.getProperty("Email"), prop.getProperty("Pass"));
 		// log.log(LogStatus.PASS, "Test Case Pass");
 		LP.Login(email, pass);
-		Assert.assertTrue(false);
+		//Assert.assertTrue(false);
 
 	}
 
@@ -70,10 +69,13 @@ public class LoginPageTest extends Base {
 			log.log(LogStatus.FAIL, "Test Case Failed", log.addScreenCapture(path));
 			
 		}
+		else if (result.getStatus()==ITestResult.SUCCESS)
+		{
+			log.log(LogStatus.PASS, "Test Case Failed is " + result.getThrowable());
+		}
 		extent.endTest(log);
 		driver.close();
-		extent.flush();
-		extent.close();
+
 	}
 
 	@DataProvider(name = "data")

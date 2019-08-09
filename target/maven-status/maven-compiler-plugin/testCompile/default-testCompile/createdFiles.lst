@@ -1,1 +1,5 @@
-Insight\Tests\DashboardTest.class
+Insight\Tests\StringMethods.class
+Insight\Tests\ContactsPageTest.class
+Insight\Tests\DashboardPageTest.class
+Insight\Tests\LoginPageTest.class
+Insight\Tests\Menuhandking.class

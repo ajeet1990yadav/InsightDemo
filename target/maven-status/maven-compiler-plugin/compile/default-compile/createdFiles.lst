@@ -1,2 +1,7 @@
 Insight\Base\Base.class
+Insight\Utils\CaptureScreenshot.class
+Insight\Base\PrimeNumber.class
+Insight\Pages\ContactsPage.class
+Insight\Utils\ExcelReader.class
 Insight\Pages\LoginPage.class
+Insight\Pages\DashboardPage.class
