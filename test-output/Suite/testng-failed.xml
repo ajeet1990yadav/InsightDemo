@@ -1,15 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test thread-count="5" name="Test(failed)">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <test thread-count="2" name="Test1(failed)" parallel="tests">
+    <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="Insight.Tests.DashboardTest">
+      <class name="Insight.Tests.LoginPageTest">
         <methods>
-          <include name="start"/>
+          <include name="beforesuite"/>
           <include name="test"/>
-          <include name="stop"/>
+          <include name="start"/>
+          <include name="test2"/>
+          <include name="aftersuite"/>
+          <include name="aftermethod"/>
         </methods>
-      </class> <!-- Insight.Tests.DashboardTest -->
+      </class> <!-- Insight.Tests.LoginPageTest -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Test1(failed) -->
+  <test thread-count="2" name="Test2(failed)" parallel="tests">
+    <parameter name="browser" value="FF"/>
+    <classes>
+      <class name="Insight.Tests.LoginPageTest">
+        <methods>
+          <include name="beforesuite"/>
+          <include name="test"/>
+          <include name="start"/>
+          <include name="test2"/>
+          <include name="aftersuite"/>
+          <include name="aftermethod"/>
+        </methods>
+      </class> <!-- Insight.Tests.LoginPageTest -->
+    </classes>
+  </test> <!-- Test2(failed) -->
 </suite> <!-- Failed suite [Suite] -->

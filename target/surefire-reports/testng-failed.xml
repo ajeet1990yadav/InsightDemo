@@ -3,6 +3,15 @@
 <suite verbose="0" name="Failed suite [Command line suite]">
   <test thread-count="5" verbose="0" name="Command line test(failed)">
     <classes>
+      <class name="Insight.Tests.LoginPageTest">
+        <methods>
+          <include name="beforesuite"/>
+          <include name="test"/>
+          <include name="start"/>
+          <include name="aftersuite"/>
+          <include name="aftermethod"/>
+        </methods>
+      </class> <!-- Insight.Tests.LoginPageTest -->
       <class name="Insight.Tests.DashboardPageTest">
         <methods>
           <include name="test"/>

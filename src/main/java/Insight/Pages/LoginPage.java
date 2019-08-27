@@ -2,6 +2,7 @@ package Insight.Pages;
 
 import java.io.IOException;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -24,11 +25,17 @@ public class LoginPage extends Base{
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void Login(String Email, String Pass)
+	public void Login(String Email, String Pass) throws InterruptedException
 	{
 		EmailAddress.sendKeys(Email);
 		Password.sendKeys(Pass);
+//		JavascriptExecutor jse = (JavascriptExecutor) driver;
+//		jse.executeScript(document.Password.value.Pass);
+//		
+//		Thread.sleep(5000);
 		LoginBtn.click();
+		
+		Thread.sleep(10000);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.assertthat.selenium_shutterbug.core.Shutterbug;
@@ -33,23 +34,32 @@ public class LoginPageTest extends Base {
 	public LoginPageTest() throws IOException {
 		super();
 	}
-
+	
+	@Parameters("browser")
 	@BeforeMethod
-	public void start() throws IOException {
+	
+	public void start(String browser) throws IOException {
 		// B=new Base();
 		
 		log = extent.startTest("LoginPageTest");
-		Base.initalization();
+		
+		Base.initalization(browser);
 	}
 
 	@Test(dataProvider = "data")
-	public void test(String email, String pass) throws IOException {
+	public void test(String email, String pass) throws IOException, InterruptedException {
 		LP = new LoginPage();
 		// LP.Login(prop.getProperty("Email"), prop.getProperty("Pass"));
 		// log.log(LogStatus.PASS, "Test Case Pass");
 		LP.Login(email, pass);
 		//Assert.assertTrue(false);
 
+	}
+	
+	@Test
+	public void test2()
+	{
+		System.out.println(driver.getTitle());
 	}
 
 	@AfterMethod
@@ -74,7 +84,7 @@ public class LoginPageTest extends Base {
 			log.log(LogStatus.PASS, "Test Case Failed is " + result.getThrowable());
 		}
 		extent.endTest(log);
-		driver.close();
+		driver.quit();
 
 	}
 

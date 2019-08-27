@@ -3,6 +3,8 @@ package Insight.Utils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.Test;
@@ -29,14 +31,25 @@ public class ExcelReader {
 		
 		for (int i=1; i<=row; i++)
 		{
-			
-			
-			for(int j=0;j<cell;j++)
+	     for(int j=0;j<cell;j++)
 			{
-		
+			CellType type=sheet.getRow(i).getCell(j).getCellType();
+		     System.out.println(type);
+		      if (type.name().equals("STRING"))
+		        {
 				array[i-1][j]=sheet.getRow(i).getCell(j).getStringCellValue();
-				//System.out.println(abc);
-				
+				System.out.println(sheet.getRow(i).getCell(j).getStringCellValue());
+				 }
+//		         else if (type.name().equals("NUMERIC"))
+//		         	{
+//                   array[i-1][j]=sheet.getRow(i).getCell(j).getNumericCellValue();
+//			System.out.println(sheet.getRow(i).getCell(j).getNumericCellValue());
+//		}
+		         else
+	               {
+		        	 array[i-1][j]=sheet.getRow(i).getCell(j).getRawValue();
+	        	     System.out.println(sheet.getRow(i).getCell(j).getRawValue());
+		              }
 			}
 		}
 		
